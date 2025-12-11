@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio — BRIOL Candice</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- EmailJS SDK (optionnel, pour envoi d'e-mails côté client) -->
+  <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">BRIOL Candice</a>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="#about">Accueil</a>
+        <a href="#projects">Projets</a>
+        <a href="#experience">Parcours</a>
+        <a href="#skills">Compétences</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO / Présentation -->
+    <section id="about" class="hero" style="background-image: url('bg.png'); background-size: cover; background-position: center; background-attachment: fixed;">
+      <div class="hero-overlay">
+        <div class="container hero-grid">
+          <div class="hero-text">
+            <h1><span class="accent">BRIOL Candice</span></h1>
+            <p class="lead">
+              Étudiante en informatique, spécialisation Réseaux & Cybersécurité à l'IPI.
+              Je conçois et sécurise des infrastructures réseau, réalise des audits de sécurité, et développe des solutions pratiques.
+            </p>
+            <p>
+              A la recherche d'une alternance pour septembre 2025.
+            </p>
+            <div class="hero-ctas">
+              <a class="btn primary" href="#projects">Voir mes projets</a>
+              <a class="btn ghost" href="mailto:ton.email@exemple.com">Me contacter</a>
+            </div>
+            <div class="hero-socials">
+              <a href="https://github.com/ca-ndiceee" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">GitHub</a>
+              <a href="https://www.linkedin.com/in/candice-briol" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carousel Projets -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>Projets</h2>
+        <p class="muted">Quelques projets auxquels j'ai participé</p>
+
+        <div class="carousel" aria-roledescription="carousel">
+          <button class="carousel-btn prev" aria-label="Précédent">‹</button>
+
+          <div class="carousel-track">
+            <div class="carousel-slide" data-project="project-1">
+              <img src="mail.jpg" alt="Projet 1" />
+              <div class="slide-caption">
+                <h3 style="color: #f2c94c;">Serveur Mail</h3>
+                <p>Audit complet d'un réseau d'entreprise — discovery, vulnérabilités & recommandation.</p>
+              </div>
+            </div>
+
+            <div class="carousel-slide" data-project="project-2">
+              <img src="dns.jpg" alt="Projet 2" />
+              <div class="slide-caption">
+                <h3 style="color: #f2c94c;">Usurpation d'identité DNS</h3>
+                <p>Script Python / Bash pour backups et alerting sur incidents de sauvegarde.</p>
+              </div>
+            </div>
+
+            <div class="carousel-slide" data-project="project-3">
+              <img src="reseau.jpg" alt="Projet 3" />
+              <div class="slide-caption">
+                <h3 style="color: #f2c94c;">Projet laboratoire</h3>
+                <p>Conception d'un lab (Vagrant/VM) pour tests d'intrusion et apprentissage.</p>
+              </div>
+            </div>
+          </div>
+
+          <button class="carousel-btn next" aria-label="Suivant">›</button>
+
+          <div class="carousel-dots" role="tablist" aria-label="Sélection des projets">
+            <!-- Les points sont générés par JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Projets Détails -->
+    <div id="project-modal" class="modal">
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Fermer">&times;</button>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+
+    <!-- Parcours professionnel & scolaire -->
+    <section id="experience" class="section alt">
+      <div class="container">
+        <h2>Parcours professionnel & scolaire</h2>
+        <div class="experience-columns">
+          <div class="experience-col">
+            <h3 class="col-title">Parcours scolaire</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="time">2024 — Présent</div>
+                <div class="body">
+                  <h4>Étudiante — IPI</h4>
+                  <p>Formation en Réseaux et Cybersécurité. Projets de lab, audit et mise en place d'infrastructures sécurisées.</p>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="time">2021 — 2022</div>
+                <div class="body">
+                  <h4>BTS / DUT ou bac</h4>
+                  <p>Précédente formation / diplômes (remplace par ton parcours scolaire précis).</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="experience-col">
+            <h3 class="col-title">Parcours professionnel</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="time">2023 — Stage</div>
+                <div class="body">
+                  <h4>Assistante réseau — Entreprise XYZ</h4>
+                  <p>Administration de serveurs, configuration de switches, mise en place d'une politique de sauvegarde.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compétences -->
+    <section id="skills" class="section">
+      <div class="container">
+        <h2>Compétences</h2>
+        <p class="muted">Compétences techniques et savoir-faire</p>
+        
+        <div class="skills-wrapper">
+          <!-- Soft Skills -->
+          <div class="skills-container">
+            <h3 class="skills-category">Soft Skills</h3>
+            <div class="skills-boxes">
+              <div class="skill-box">
+                <span>Communication</span>
+              </div>
+              <div class="skill-box">
+                <span>Travail en équipe</span>
+              </div>
+              <div class="skill-box">
+                <span>Résolution de problèmes</span>
+              </div>
+              <div class="skill-box">
+                <span>Rigueur</span>
+              </div>
+              <div class="skill-box">
+                <span>Apprentissage rapide</span>
+              </div>
+              <div class="skill-box">
+                <span>Autonomie</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hard Skills -->
+          <div class="skills-container">
+            <h3 class="skills-category">Hard Skills</h3>
+            <div class="skills-boxes">
+              <div class="skill-box">
+                <span>Administration réseau</span>
+              </div>
+              <div class="skill-box">
+                <span>Cybersécurité / Pentesting</span>
+              </div>
+              <div class="skill-box">
+                <span>Firewalls & VPN</span>
+              </div>
+              <div class="skill-box">
+                <span>Bash / Python</span>
+              </div>
+              <div class="skill-box">
+                <span>Linux / Windows</span>
+              </div>
+              <div class="skill-box">
+                <span>Wireshark / Metasploit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recommandations -->
+    <section id="recommendations" class="section alt">
+      <div class="container">
+        <h2>Recommandations</h2>
+        <p class="muted">Ce que disent mes collaborateurs et professeurs</p>
+
+        <div class="reco-grid">
+          <blockquote class="reco">
+            <p>"Travaille avec rigueur et curiosité. Excellente capacité d'analyse lors des audits."</p>
+            <footer>— Prof. Martin, IPI</footer>
+          </blockquote>
+
+          <blockquote class="reco">
+            <p>"Très impliquée durant le stage, a su résoudre des problèmes réseau complexes."</p>
+            <footer>— Mme Dupont, Entreprise XYZ</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <h2>Contact</h2>
+        <p class="muted">Envoie-moi un message directement depuis ce formulaire.</p>
+
+        <form id="contact-form" class="contact-form" aria-label="Formulaire de contact">
+          <label>
+            Nom
+            <input type="text" name="from_name" required />
+          </label>
+
+          <label>
+            Email
+            <input type="email" name="reply_to" required />
+          </label>
+
+          <label>
+            Sujet
+            <input type="text" name="subject" />
+          </label>
+
+          <label>
+            Message
+            <textarea name="message" rows="6" required></textarea>
+          </label>
+
+          <div class="form-actions">
+            <button type="submit" class="btn primary">Envoyer</button>
+            <button type="button" id="mailto-fallback" class="btn ghost">Envoyer via mailto</button>
+          </div>
+
+          <p id="form-status" class="muted small" aria-live="polite"></p>
+        </form>
+
+        <p class="muted small">Si tu souhaites configurer l'envoi directement depuis le site, je donne les instru ctions dans README (voir plus bas).</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> BRIOL Candice — Réseaux & Cybersécurité • IPI</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
