@@ -14,11 +14,12 @@
     <div class="container header-inner">
       <a class="brand" href="#">BRIOL Candice</a>
       <nav class="main-nav" aria-label="Navigation principale">
-        <a href="#about">Accueil</a>
-        <a href="#projects">Projets</a>
-        <a href="#experience">Parcours</a>
-        <a href="#skills">Compétences</a>
-        <a href="#contact">Contact</a>
+        <a href="#about" data-en="Home" data-fr="Accueil">Accueil</a>
+        <a href="#projects" data-en="Projects" data-fr="Projets">Projets</a>
+        <a href="#experience" data-en="Experience" data-fr="Parcours">Parcours</a>
+        <a href="#skills" data-en="Skills" data-fr="Compétences">Compétences</a>
+        <a href="#contact" data-en="Contact" data-fr="Contact">Contact</a>
+        <button id="lang-toggle" class="lang-btn" data-en="FR" data-fr="EN">FR</button>
       </nav>
     </div>
   </header>
@@ -30,16 +31,16 @@
         <div class="container hero-grid">
           <div class="hero-text">
             <h1><span class="accent">BRIOL Candice</span></h1>
-            <p class="lead">
+            <p class="lead" data-en="Computer science student, specializing in Networks & Cybersecurity at IPI. I design and secure network infrastructures tailored to your needs." data-fr="Étudiante en informatique, spécialisation Réseaux & Cybersécurité à l'IPI. Je conçois et sécurise des infrastructures réseau adapté à vos besoins.">
               Étudiante en informatique, spécialisation Réseaux & Cybersécurité à l'IPI.
-              Je conçois et sécurise des infrastructures réseau, réalise des audits de sécurité, et développe des solutions pratiques.
+              Je conçois et sécurise des infrastructures réseau adapté à vos besoins.
             </p>
-            <p>
+            <p data-en="Looking for an internship starting September 2025." data-fr="A la recherche d'une alternance pour septembre 2025.">
               A la recherche d'une alternance pour septembre 2025.
             </p>
             <div class="hero-ctas">
-              <a class="btn primary" href="#projects">Voir mes projets</a>
-              <a class="btn ghost" href="mailto:ton.email@exemple.com">Me contacter</a>
+              <a class="btn primary" href="#projects" data-en="View my projects" data-fr="Voir mes projets">Voir mes projets</a>
+              <a class="btn ghost" href="mailto:ton.email@exemple.com" data-en="Contact me" data-fr="Me contacter">Me contacter</a>
             </div>
             <div class="hero-socials">
               <a href="https://github.com/ca-ndiceee" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">GitHub</a>
@@ -53,8 +54,8 @@
     <!-- Carousel Projets -->
     <section id="projects" class="section">
       <div class="container">
-        <h2>Projets</h2>
-        <p class="muted">Quelques projets auxquels j'ai participé</p>
+        <h2 data-en="Projects" data-fr="Projets">Projets</h2>
+        <p class="muted" data-en="Some projects I have worked on" data-fr="Quelques projets auxquels j'ai participé">Quelques projets auxquels j'ai participé</p>
 
         <div class="carousel" aria-roledescription="carousel">
           <button class="carousel-btn prev" aria-label="Précédent">‹</button>
@@ -63,24 +64,24 @@
             <div class="carousel-slide" data-project="project-1">
               <img src="mail.jpg" alt="Projet 1" />
               <div class="slide-caption">
-                <h3 style="color: #f2c94c;">Serveur Mail</h3>
-                <p>Audit complet d'un réseau d'entreprise — discovery, vulnérabilités & recommandation.</p>
+                <h3 style="color: #ED7F10;" data-en="Mail Server" data-fr="Serveur Mail">Serveur Mail</h3>
+                <p data-en="Internal mail server on a Debian Linux server" data-fr="Serveur de messagerie interne sur un serveur Debian linux">Serveur de messagerie interne sur un serveur Debian linux</p>
               </div>
             </div>
 
             <div class="carousel-slide" data-project="project-2">
               <img src="dns.jpg" alt="Projet 2" />
               <div class="slide-caption">
-                <h3 style="color: #f2c94c;">Usurpation d'identité DNS</h3>
-                <p>Script Python / Bash pour backups et alerting sur incidents de sauvegarde.</p>
+                <h3 style="color: #ED7F10;" data-en="DNS Identity Spoofing" data-fr="Usurpation d'identité DNS">Usurpation d'identité DNS</h3>
+                <p data-en="Spoofing a website via a rogue DNS." data-fr="Usurpation d'un site internet, via un rogue DNS.">Usurpation d'un site internet, via un rogue DNS.</p>
               </div>
             </div>
 
             <div class="carousel-slide" data-project="project-3">
               <img src="reseau.jpg" alt="Projet 3" />
               <div class="slide-caption">
-                <h3 style="color: #f2c94c;">Projet laboratoire</h3>
-                <p>Conception d'un lab (Vagrant/VM) pour tests d'intrusion et apprentissage.</p>
+                <h3 style="color: #ED7F10;" data-en="Laboratory Project" data-fr="Projet laboratoire">Projet laboratoire</h3>
+                <p data-en="Design of a laboratory to provide the school's computer equipment at the service of students." data-fr="Conception d'un laboratoire pour mettre à disposition le materiel informatique de l'école au service des étudiants.">Conception d'un laboratoire pour mettre à disposition le materiel informatique de l'école au service des étudiants.</p>
               </div>
             </div>
           </div>
@@ -105,37 +106,37 @@
     <!-- Parcours professionnel & scolaire -->
     <section id="experience" class="section alt">
       <div class="container">
-        <h2>Parcours professionnel & scolaire</h2>
+        <h2 data-en="Professional & Academic Experience" data-fr="Parcours professionnel & scolaire">Parcours professionnel & scolaire</h2>
         <div class="experience-columns">
           <div class="experience-col">
-            <h3 class="col-title">Parcours scolaire</h3>
+            <h3 class="col-title" data-en="Academic Experience" data-fr="Parcours scolaire">Parcours scolaire</h3>
             <div class="timeline">
               <div class="timeline-item">
-                <div class="time">2024 — Présent</div>
+                <div class="time" data-en="2024 — Present" data-fr="2024 — Présent">2024 — Présent</div>
                 <div class="body">
-                  <h4>Étudiante — IPI</h4>
-                  <p>Formation en Réseaux et Cybersécurité. Projets de lab, audit et mise en place d'infrastructures sécurisées.</p>
+                  <h4 data-en="Student — IPI" data-fr="Étudiante — IPI">Étudiante — IPI</h4>
+                  <p data-en="Training in Networks and Cybersecurity. Lab projects, audits and secure infrastructure implementation." data-fr="Formation en Réseaux et Cybersécurité. Projets de lab, audit et mise en place d'infrastructures sécurisées.">Formation en Réseaux et Cybersécurité. Projets de lab, audit et mise en place d'infrastructures sécurisées.</p>
                 </div>
               </div>
 
               <div class="timeline-item">
-                <div class="time">2021 — 2022</div>
+                <div class="time" data-en="2021 — 2022" data-fr="2021 — 2022">2021 — 2022</div>
                 <div class="body">
-                  <h4>BTS / DUT ou bac</h4>
-                  <p>Précédente formation / diplômes (remplace par ton parcours scolaire précis).</p>
+                  <h4 data-en="BTS / DUT or Baccalaureate" data-fr="BTS / DUT ou bac">BTS / DUT ou bac</h4>
+                  <p data-en="Previous training / diplomas (replace with your precise academic background)." data-fr="Précédente formation / diplômes (remplace par ton parcours scolaire précis).">Précédente formation / diplômes (remplace par ton parcours scolaire précis).</p>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="experience-col">
-            <h3 class="col-title">Parcours professionnel</h3>
+            <h3 class="col-title" data-en="Professional Experience" data-fr="Parcours professionnel">Parcours professionnel</h3>
             <div class="timeline">
               <div class="timeline-item">
-                <div class="time">2023 — Stage</div>
+                <div class="time" data-en="2023 — Internship" data-fr="2023 — Stage">2023 — Stage</div>
                 <div class="body">
-                  <h4>Assistante réseau — Entreprise XYZ</h4>
-                  <p>Administration de serveurs, configuration de switches, mise en place d'une politique de sauvegarde.</p>
+                  <h4 data-en="Network Assistant — Company XYZ" data-fr="Assistante réseau — Entreprise XYZ">Assistante réseau — Entreprise XYZ</h4>
+                  <p data-en="Server administration, switch configuration, backup policy implementation." data-fr="Administration de serveurs, configuration de switches, mise en place d'une politique de sauvegarde.">Administration de serveurs, configuration de switches, mise en place d'une politique de sauvegarde.</p>
                 </div>
               </div>
             </div>
@@ -147,56 +148,56 @@
     <!-- Compétences -->
     <section id="skills" class="section">
       <div class="container">
-        <h2>Compétences</h2>
-        <p class="muted">Compétences techniques et savoir-faire</p>
+        <h2 data-en="Skills" data-fr="Compétences">Compétences</h2>
+        <p class="muted" data-en="Technical skills and expertise" data-fr="Compétences techniques et savoir-faire">Compétences techniques et savoir-faire</p>
         
         <div class="skills-wrapper">
           <!-- Soft Skills -->
           <div class="skills-container">
-            <h3 class="skills-category">Soft Skills</h3>
+            <h3 class="skills-category" data-en="Soft Skills" data-fr="Soft Skills">Soft Skills</h3>
             <div class="skills-boxes">
               <div class="skill-box">
-                <span>Communication</span>
+                <span data-en="Communication" data-fr="Communication">Communication</span>
               </div>
               <div class="skill-box">
-                <span>Travail en équipe</span>
+                <span data-en="Teamwork" data-fr="Travail en équipe">Travail en équipe</span>
               </div>
               <div class="skill-box">
-                <span>Résolution de problèmes</span>
+                <span data-en="Problem Solving" data-fr="Résolution de problèmes">Résolution de problèmes</span>
               </div>
               <div class="skill-box">
-                <span>Rigueur</span>
+                <span data-en="Rigor" data-fr="Rigueur">Rigueur</span>
               </div>
               <div class="skill-box">
-                <span>Apprentissage rapide</span>
+                <span data-en="Quick Learning" data-fr="Apprentissage rapide">Apprentissage rapide</span>
               </div>
               <div class="skill-box">
-                <span>Autonomie</span>
+                <span data-en="Independence" data-fr="Autonomie">Autonomie</span>
               </div>
             </div>
           </div>
 
           <!-- Hard Skills -->
           <div class="skills-container">
-            <h3 class="skills-category">Hard Skills</h3>
+            <h3 class="skills-category" data-en="Hard Skills" data-fr="Hard Skills">Hard Skills</h3>
             <div class="skills-boxes">
               <div class="skill-box">
-                <span>Administration réseau</span>
+                <span data-en="Network Administration" data-fr="Administration réseau">Administration réseau</span>
               </div>
               <div class="skill-box">
-                <span>Cybersécurité / Pentesting</span>
+                <span data-en="Cybersecurity / Pentesting" data-fr="Cybersécurité / Pentesting">Cybersécurité / Pentesting</span>
               </div>
               <div class="skill-box">
-                <span>Firewalls & VPN</span>
+                <span data-en="Firewalls & VPN" data-fr="Firewalls & VPN">Firewalls & VPN</span>
               </div>
               <div class="skill-box">
-                <span>Bash / Python</span>
+                <span data-en="Bash / Python" data-fr="Bash / Python">Bash / Python</span>
               </div>
               <div class="skill-box">
-                <span>Linux / Windows</span>
+                <span data-en="Linux / Windows" data-fr="Linux / Windows">Linux / Windows</span>
               </div>
               <div class="skill-box">
-                <span>Wireshark / Metasploit</span>
+                <span data-en="Wireshark / Metasploit" data-fr="Wireshark / Metasploit">Wireshark / Metasploit</span>
               </div>
             </div>
           </div>
@@ -207,18 +208,18 @@
     <!-- Recommandations -->
     <section id="recommendations" class="section alt">
       <div class="container">
-        <h2>Recommandations</h2>
-        <p class="muted">Ce que disent mes collaborateurs et professeurs</p>
+        <h2 data-en="Recommendations" data-fr="Recommandations">Recommandations</h2>
+        <p class="muted" data-en="What my collaborators and professors say" data-fr="Ce que disent mes collaborateurs et professeurs">Ce que disent mes collaborateurs et professeurs</p>
 
         <div class="reco-grid">
           <blockquote class="reco">
-            <p>"Travaille avec rigueur et curiosité. Excellente capacité d'analyse lors des audits."</p>
-            <footer>— Prof. Martin, IPI</footer>
+            <p data-en="Works with rigor and curiosity. Excellent analysis skills during audits." data-fr="Travaille avec rigueur et curiosité. Excellente capacité d'analyse lors des audits.">Travaille avec rigueur et curiosité. Excellente capacité d'analyse lors des audits.</p>
+            <footer data-en="— Prof. Martin, IPI" data-fr="— Prof. Martin, IPI">— Prof. Martin, IPI</footer>
           </blockquote>
 
           <blockquote class="reco">
-            <p>"Très impliquée durant le stage, a su résoudre des problèmes réseau complexes."</p>
-            <footer>— Mme Dupont, Entreprise XYZ</footer>
+            <p data-en="Very involved during the internship, able to solve complex network problems." data-fr="Très impliquée durant le stage, a su résoudre des problèmes réseau complexes.">Très impliquée durant le stage, a su résoudre des problèmes réseau complexes.</p>
+            <footer data-en="— Ms. Dupont, Company XYZ" data-fr="— Mme Dupont, Entreprise XYZ">— Mme Dupont, Entreprise XYZ</footer>
           </blockquote>
         </div>
       </div>
@@ -227,45 +228,45 @@
     <!-- Contact -->
     <section id="contact" class="section contact-section">
       <div class="container">
-        <h2>Contact</h2>
-        <p class="muted">N'hésitez pas à me contacter depuis ce formulaire.</p>
+        <h2 data-en="Contact" data-fr="Contact">Contact</h2>
+        <p class="muted" data-en="Feel free to contact me using this form." data-fr="N'hésitez pas à me contacter depuis ce formulaire.">N'hésitez pas à me contacter depuis ce formulaire.</p>
 
         <form id="contact-form" class="contact-form" aria-label="Formulaire de contact">
-          <label>
+          <label data-en="Name" data-fr="Nom">
             Nom
             <input type="text" name="from_name" required />
           </label>
 
-          <label>
+          <label data-en="Email" data-fr="Email">
             Email
             <input type="email" name="reply_to" required />
           </label>
 
-          <label>
+          <label data-en="Subject" data-fr="Sujet">
             Sujet
             <input type="text" name="subject" />
           </label>
 
-          <label>
+          <label data-en="Message" data-fr="Message">
             Message
             <textarea name="message" rows="6" required></textarea>
           </label>
 
           <div class="form-actions">
-            <button type="submit" class="btn primary">Envoyer</button>
+            <button type="submit" class="btn primary" data-en="Send" data-fr="Envoyer">Envoyer</button>
           </div>
 
           <p id="form-status" class="muted small" aria-live="polite"></p>
         </form>
 
-        <p class="muted small">Merci pour votre message !</p>
+        <p class="muted small" data-en="Thank you for your message!" data-fr="Merci pour votre message !">Merci pour votre message !</p>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; <span id="year"></span> BRIOL Candice — Réseaux & Cybersécurité • IPI</p>
+      <p>&copy; <span id="year"></span> BRIOL Candice — <span data-en="Networks & Cybersecurity • IPI" data-fr="Réseaux & Cybersécurité • IPI">Réseaux & Cybersécurité • IPI</span></p>
     </div>
   </footer>
 

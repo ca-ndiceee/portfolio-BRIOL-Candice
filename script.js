@@ -1,6 +1,30 @@
 // Script principal : carousel, formulaire (EmailJS) et petites interactions
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Gestion de la langue
+  let currentLang = localStorage.getItem('language') || 'en';
+  
+  function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('language', lang);
+    
+    document.querySelectorAll('[data-en][data-fr]').forEach(el => {
+      el.textContent = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-fr');
+    });
+    
+    // Mettre à jour le bouton de langue
+    const langBtn = document.getElementById('lang-toggle');
+    langBtn.textContent = lang === 'en' ? 'FR' : 'EN';
+  }
+  
+  // Initialiser la langue par défaut
+  setLanguage(currentLang);
+  
+  // Bouton de changement de langue
+  document.getElementById('lang-toggle').addEventListener('click', () => {
+    setLanguage(currentLang === 'en' ? 'fr' : 'en');
+  });
+
   // année du footer
   document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -120,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </ul>
             <h4 style="color: var(--accent); margin-top: 1.5rem;">Compétences acquises:</h4>
             <div style="display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:0.75rem;">
-              ${projectData.skills.map(skill => `<div style="background:rgba(242,201,76,0.12);color:var(--text);padding:0.4rem 0.6rem;border-radius:8px;border:1px solid rgba(242,201,76,0.2);display:inline-flex;align-items:center;justify-content:center;text-align:center;font-weight:500;font-size:0.85rem;white-space:nowrap;">${skill}</div>`).join('')}
+              ${projectData.skills.map(skill => `<div style="background:rgba(230,126,48,0.12);color:var(--text);padding:0.4rem 0.6rem;border-radius:8px;border:1px solid rgba(230,126,48,0.2);display:inline-flex;align-items:center;justify-content:center;text-align:center;font-weight:500;font-size:0.85rem;white-space:nowrap;">${skill}</div>`).join('')}
             </div>
           `;
           modal.classList.add('active');
