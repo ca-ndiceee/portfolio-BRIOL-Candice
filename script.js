@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const subject = form.elements['subject'].value || 'Contact portfolio';
     const message = form.elements['message'].value || '';
     const body = encodeURIComponent(`De : ${name} <${email}>\n\n${message}`);
-    window.location.href = `mailto:ton.email@exemple.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    window.location.href = `mailto:candice.briol@edu.igensia.com?subject=${encodeURIComponent(subject)}&body=${body}`;
   });
 
   // ----- Option A : EmailJS (client-side) -----
@@ -181,8 +181,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Template doit accepter keys: from_name, reply_to, subject, message
   try {
     if (window.emailjs) {
-      // Remplace par ton USER ID fourni par EmailJS
-      emailjs.init('YOUR_USER_ID');
+      // Initialiser EmailJS avec l'User ID public
+      emailjs.init('-Slnvf8wCFrUvj7HF');
     }
   } catch (e) {
     // ignore si pas de EmailJS
@@ -200,8 +200,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Si EmailJS est configuré correctement -> envoi via EmailJS
     if (window.emailjs && typeof emailjs.send === 'function' && emailjs.init) {
-      // Remplacer SERVICE_ID et TEMPLATE_ID par tes identifiants EmailJS
-      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+      // Envoyer avec les identifiants EmailJS configurés
+      emailjs.send('service_6ol953w', 'template_dolomdt', templateParams)
         .then(() => {
           status.textContent = 'Merci ! Ton message a bien été envoyé.';
           form.reset();
