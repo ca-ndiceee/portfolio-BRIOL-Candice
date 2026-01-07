@@ -163,26 +163,15 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------- CONTACT FORM ---------- */
   const form = document.getElementById('contact-form');
   const status = document.getElementById('form-status');
-  const mailtoBtn = document.getElementById('mailto-fallback');
 
-  // Mailto fallback : ouvre le client de l'utilisateur
-  mailtoBtn.addEventListener('click', () => {
-    const name = form.elements['from_name'].value || '';
-    const email = form.elements['reply_to'].value || '';
-    const subject = form.elements['subject'].value || 'Contact portfolio';
-    const message = form.elements['message'].value || '';
-    const body = encodeURIComponent(`De : ${name} <${email}>\n\n${message}`);
-    window.location.href = `mailto:candice.briol@edu.igensia.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-  });
 
   // ----- Option A : EmailJS (client-side) -----
   // Instructions : crée un compte sur https://www.emailjs.com, crée un service (ex: gmail), un template,
-  // puis remplace 'YOUR_USER_ID', 'YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID' ci-dessous.
-  // Template doit accepter keys: from_name, reply_to, subject, message
+  // Configuration EmailJS - template accepte: name, email, subject, message
   try {
     if (window.emailjs) {
-      // Initialiser EmailJS avec l'User ID public
-      emailjs.init('-Slnvf8wCFrUvj7HF');
+      // Initialiser EmailJS avec l'API key publique
+      emailjs.init('24eCvxPy7L4qKKVWC');
     }
   } catch (e) {
     // ignore si pas de EmailJS
@@ -192,8 +181,8 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     status.textContent = 'Envoi en cours…';
     const templateParams = {
-      from_name: form.elements['from_name'].value,
-      reply_to: form.elements['reply_to'].value,
+      name: form.elements['from_name'].value,
+      email: form.elements['reply_to'].value,
       subject: form.elements['subject'].value || 'Contact via portfolio',
       message: form.elements['message'].value
     };
