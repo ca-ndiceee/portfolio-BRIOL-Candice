@@ -101,12 +101,14 @@ body{
 .reco{background:var(--panel);padding:1rem;border-radius:10px;border:1px solid rgba(255,255,255,0.02);font-style:normal}
 
 /* contact */
-.contact-form{display:grid;gap:0.75rem;grid-template-columns:1fr 1fr}
-.contact-form label{display:flex;flex-direction:column;gap:0.3rem}
-.contact-form input,.contact-form textarea{background:#1a3a4a;color:var(--text);border:1px solid rgba(255,255,255,0.05);padding:0.6rem;border-radius:8px}
-.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--accent);background:#234a5a}
-.contact-form textarea{grid-column:1 / -1}
-.form-actions{grid-column:1 / -1;display:flex;gap:0.6rem;align-items:center}
+.contact-form{display:grid;gap:1.5rem;grid-template-columns:1fr 1fr;margin-top:2rem}
+.contact-form label{display:flex;flex-direction:column;gap:0.8rem;color:var(--text);font-weight:500;font-size:0.95rem}
+.contact-form input,.contact-form textarea{width:100%;background:#1a3a4a;color:var(--text);border:2px solid rgba(255,255,255,0.15);padding:1rem;border-radius:8px;font-size:1rem;font-family:inherit;transition:all 0.3s ease}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:rgba(232,232,232,0.5)}
+.contact-form input:hover,.contact-form textarea:hover{border-color:rgba(255,255,255,0.25);background:#204a5a}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--accent);background:#234a5a;box-shadow:0 0 12px rgba(237,127,16,0.3)}
+.contact-form textarea{grid-column:1 / -1;resize:vertical;min-height:140px}
+.form-actions{grid-column:1 / -1;display:flex;gap:0.6rem;align-items:center;margin-top:1rem}
 .form-actions .btn{min-width:140px}
 
 /* modal */
