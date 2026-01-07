@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Si EmailJS est configuré correctement -> envoi via EmailJS
-    if (window.emailjs && typeof emailjs.send === 'function' && emailjs.init) {
+    if (window.emailjs && typeof emailjs.send === 'function') {
       // Envoyer avec les identifiants EmailJS configurés
       emailjs.send('service_6ol953w', 'template_dolomdt', templateParams)
         .then(() => {
