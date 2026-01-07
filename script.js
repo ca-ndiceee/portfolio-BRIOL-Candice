@@ -168,14 +168,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // ----- Option A : EmailJS (client-side) -----
   // Instructions : crée un compte sur https://www.emailjs.com, crée un service (ex: gmail), un template,
   // Configuration EmailJS - template accepte: name, email, subject, message
-  try {
+  // Attendre que EmailJS SDK soit chargée
+  function initEmailJS() {
     if (window.emailjs) {
-      // Initialiser EmailJS avec l'API key publique
       emailjs.init('24eCvxPy7L4qKKVWC');
+      console.log('EmailJS initialized successfully');
+      return true;
+    } else {
+      console.warn('EmailJS SDK not loaded yet, retrying...');
+      setTimeout(initEmailJS, 500);
+      return false;
     }
-  } catch (e) {
-    // ignore si pas de EmailJS
   }
+  
+  initEmailJS();
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -188,7 +194,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Si EmailJS est configuré correctement -> envoi via EmailJS
+    console.log('Form submitted - checking EmailJS:', { hasEmailJS: !!window.emailjs, hasSend: !!(window.emailjs && typeof emailjs.send === 'function') });
     if (window.emailjs && typeof emailjs.send === 'function') {
+      console.log('Sending with EmailJS...');
       // Envoyer avec les identifiants EmailJS configurés
       emailjs.send('service_6ol953w', 'template_dolomdt', templateParams)
         .then(() => {
