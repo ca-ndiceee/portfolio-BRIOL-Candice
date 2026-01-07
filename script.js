@@ -167,73 +167,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ----- Option A : EmailJS (client-side) -----
   // Instructions : crée un compte sur https://www.emailjs.com, crée un service (ex: gmail), un template,
-  // Configuration EmailJS - template accepte: name, email, subject, message
-  // Attendre que EmailJS SDK soit chargée
-  function initEmailJS() {
-    if (window.emailjs) {
-      emailjs.init('24eCvxPy7L4qKKVWC');
-      console.log('EmailJS initialized successfully');
-      return true;
-    } else {
-      console.warn('EmailJS SDK not loaded yet, retrying...');
-      setTimeout(initEmailJS, 500);
-      return false;
-    }
-  }
-  
-  initEmailJS();
+  // Configuration Formspree - Solution simple et fiable
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xkogdrjd';
+  let emailjsReady = false; // on n'utilise plus EmailJS
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     status.textContent = 'Envoi en cours…';
-    const templateParams = {
-      name: form.elements['from_name'].value,
-      email: form.elements['reply_to'].value,
-      subject: form.elements['subject'].value || 'Contact via portfolio',
-      message: form.elements['message'].value
-    };
-
-    // Si EmailJS est configuré correctement -> envoi via EmailJS
-    console.log('Form submitted - checking EmailJS:', { hasEmailJS: !!window.emailjs, hasSend: !!(window.emailjs && typeof emailjs.send === 'function') });
-    if (window.emailjs && typeof emailjs.send === 'function') {
-      console.log('Sending with EmailJS...');
-      // Envoyer avec les identifiants EmailJS configurés
-      emailjs.send('service_6ol953w', 'template_dolomdt', templateParams)
-        .then(() => {
-          status.textContent = 'Merci ! Ton message a bien été envoyé.';
-          form.reset();
-        }, (err) => {
-          console.error('EmailJS error', err);
-          status.textContent = 'Erreur lors de l\'envoi via EmailJS. Essaie la méthode mailto ou configure Formspree.';
+    
+    const formData = new FormData(form);
+    
+    // Utiliser Formspree pour envoyer
+    fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(response => {
+      console.log('Response status:', response.status);
+      if (response.ok) {
+        status.textContent = '✅ Merci ! Ton message a bien été envoyé.';
+        form.reset();
+        return response.json();
+      } else {
+        return response.json().then(data => {
+          console.error('Form error:', data);
+          throw new Error(data.error || 'Erreur lors de l\'envoi');
         });
-      return;
-    }
-
-    // ----- Option B : Formspree (fetch) -----
-    // Si tu préfères Formspree (ou Netlify Forms), inscris-toi et remplace l'URL ci-dessous par ton endpoint Formspree.
-    // Exemple Formspree : 'https://formspree.io/f/{ID}'
-    const FORMSPREE_ENDPOINT = ''; // mettre ton endpoint Formspree si tu veux
-    if (FORMSPREE_ENDPOINT) {
-      fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          status.textContent = 'Merci ! Ton message a bien été envoyé.';
-          form.reset();
-        } else {
-          return response.json().then(data => Promise.reject(data));
-        }
-      }).catch(err => {
-        console.error('Formspree error', err);
-        status.textContent = 'Erreur lors de l\'envoi. Essaie la méthode mailto ou vérifie la configuration.';
-      });
-      return;
-    }
-
-    // ----- Fallback : afficher message et proposer mailto -----
-    status.innerHTML = 'Aucun service d\'envoi configuré. Utilise le bouton "Envoyer via mailto" ou configure EmailJS/Formspree dans script.js.';
+      }
+    })
+    .then(data => {
+      console.log('Success:', data);
+    })
+    .catch(err => {
+      console.error('Formspree error:', err);
+      status.textContent = '❌ Erreur lors de l\'envoi. Essaie à nouveau ou contacte directement.';
+    });
   });
 
   /* ---------- NAV: smooth scroll ---------- */
