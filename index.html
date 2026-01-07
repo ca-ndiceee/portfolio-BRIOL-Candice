@@ -226,40 +226,37 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="section contact-section">
+    <section id="contact" class="section">
       <div class="container">
         <h2 data-en="Contact" data-fr="Contact">Contact</h2>
         <p class="muted" data-en="Feel free to contact me using this form." data-fr="N'hésitez pas à me contacter depuis ce formulaire.">N'hésitez pas à me contacter depuis ce formulaire.</p>
 
-        <form id="contact-form" class="contact-form" aria-label="Formulaire de contact">
-          <label data-en="Name" data-fr="Nom">
-            Nom
-            <input type="text" name="from_name" required />
-          </label>
+        <form id="contact-form" class="contact-form-wrapper" aria-label="Formulaire de contact">
+          <div class="form-group">
+            <label for="from_name" data-en="Name" data-fr="Nom">Nom</label>
+            <input type="text" id="from_name" name="from_name" required placeholder="Votre nom" />
+          </div>
 
-          <label data-en="Email" data-fr="Email">
-            Email
-            <input type="email" name="reply_to" required />
-          </label>
+          <div class="form-group">
+            <label for="reply_to" data-en="Email" data-fr="Email">Email</label>
+            <input type="email" id="reply_to" name="reply_to" required placeholder="Votre email" />
+          </div>
 
-          <label data-en="Subject" data-fr="Sujet">
-            Sujet
-            <input type="text" name="subject" />
-          </label>
+          <div class="form-group">
+            <label for="subject" data-en="Subject" data-fr="Sujet">Sujet</label>
+            <input type="text" id="subject" name="subject" placeholder="Sujet du message" />
+          </div>
 
-          <label data-en="Message" data-fr="Message">
-            Message
-            <textarea name="message" rows="6" required></textarea>
-          </label>
+          <div class="form-group form-group-full">
+            <label for="message" data-en="Message" data-fr="Message">Message</label>
+            <textarea id="message" name="message" rows="6" required placeholder="Écrivez votre message ici..."></textarea>
+          </div>
 
           <div class="form-actions">
             <button type="submit" class="btn primary" data-en="Send" data-fr="Envoyer">Envoyer</button>
+            <p id="form-status" class="form-status" aria-live="polite"></p>
           </div>
-
-          <p id="form-status" class="muted small" aria-live="polite"></p>
         </form>
-
-        <p class="muted small" data-en="Thank you for your message!" data-fr="Merci pour votre message !">Merci pour votre message !</p>
       </div>
     </section>
   </main>
