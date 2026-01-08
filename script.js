@@ -12,6 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
       el.textContent = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-fr');
     });
     
+    // Traduire les placeholders des inputs
+    document.querySelectorAll('[data-en-placeholder][data-fr-placeholder]').forEach(el => {
+      el.placeholder = lang === 'en' ? el.getAttribute('data-en-placeholder') : el.getAttribute('data-fr-placeholder');
+    });
+    
     // Mettre à jour le bouton de langue
     const langBtn = document.getElementById('lang-toggle');
     langBtn.textContent = lang === 'en' ? 'FR' : 'EN';
