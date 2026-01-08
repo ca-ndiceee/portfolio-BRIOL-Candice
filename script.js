@@ -169,7 +169,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Instructions : crée un compte sur https://www.emailjs.com, crée un service (ex: gmail), un template,
   // Configuration Formspree - Solution simple et fiable
   const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xkogdrjd';
-  let emailjsReady = false; // on n'utilise plus EmailJS
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
