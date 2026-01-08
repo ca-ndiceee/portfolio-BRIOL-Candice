@@ -97,8 +97,8 @@ body{
 .carousel-dot.active{background:var(--accent);box-shadow:0 4px 12px rgba(230,126,48,0.14)}
 
 /* recommendations */
-.reco-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1rem}
-.reco{background:var(--panel);padding:1rem;border-radius:10px;border:1px solid rgba(255,255,255,0.02);font-style:normal}
+.reco-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;margin-top:2rem;padding:0 1rem}
+.reco{background:var(--panel);padding:1.5rem;border-radius:10px;border:1px solid rgba(255,255,255,0.02);font-style:normal}
 
 /* contact */
 .contact-form-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;background:rgba(21,42,58,0.3);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.05)}
