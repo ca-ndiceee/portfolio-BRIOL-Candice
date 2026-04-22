@@ -1,8 +1,13 @@
-// Script principal : carousel, formulaire (EmailJS) et petites interactions
+/* Complete Portfolio JavaScript - script-clean.js */
+
+// Formspree endpoint provided by user
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xkogdrjd';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Gestion de la langue
-  let currentLang = localStorage.getItem('language') || 'en';
+  // Language management
+  let currentLang = localStorage.getItem('language') || 'fr';
+  
+  const langToggle = document.getElementById('lang-toggle');
   
   function setLanguage(lang) {
     currentLang = lang;
@@ -12,211 +17,176 @@ document.addEventListener('DOMContentLoaded', () => {
       el.textContent = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-fr');
     });
     
-    // Traduire les placeholders des inputs
     document.querySelectorAll('[data-en-placeholder][data-fr-placeholder]').forEach(el => {
       el.placeholder = lang === 'en' ? el.getAttribute('data-en-placeholder') : el.getAttribute('data-fr-placeholder');
     });
     
-    // Mettre à jour le bouton de langue
-    const langBtn = document.getElementById('lang-toggle');
-    langBtn.textContent = lang === 'en' ? 'FR' : 'EN';
+    if (langToggle) {
+      langToggle.textContent = lang === 'en' ? 'FR' : 'EN';
+    }
   }
   
-  // Initialiser la langue par défaut
   setLanguage(currentLang);
   
-  // Bouton de changement de langue
-  document.getElementById('lang-toggle').addEventListener('click', () => {
-    setLanguage(currentLang === 'en' ? 'fr' : 'en');
-  });
-
-  // année du footer
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  /* ---------- CAROUSEL ---------- */
-  const track = document.querySelector('.carousel-track');
-  const slides = Array.from(track.querySelectorAll('.carousel-slide'));
-  const prevBtn = document.querySelector('.carousel-btn.prev');
-  const nextBtn = document.querySelector('.carousel-btn.next');
-  const dotsWrap = document.querySelector('.carousel-dots');
-
-  // si slides non trouvées, on en crée à partir des enfants (HTML fourni)
-  if (slides.length) {
-    let currentIndex = 0;
-
-    function showSlide(index) {
-      slides.forEach((s, i) => {
-        s.classList.remove('active');
-        s.style.display = i === index ? 'flex' : 'none';
-        if (i === index) {
-          setTimeout(() => s.classList.add('active'), 10);
-        }
-      });
-      // état dots
-      Array.from(dotsWrap.children).forEach((d, i) => d.classList.toggle('active', i === index));
-      currentIndex = index;
-    }
-
-    // créer les dots
-    slides.forEach((_, i) => {
-      const dot = document.createElement('button');
-      dot.className = 'carousel-dot';
-      dot.setAttribute('aria-label', 'Aller au projet ' + (i + 1));
-      dot.addEventListener('click', () => showSlide(i));
-      dotsWrap.appendChild(dot);
-    });
-
-    showSlide(0);
-
-    prevBtn.addEventListener('click', () => showSlide((currentIndex - 1 + slides.length) % slides.length));
-    nextBtn.addEventListener('click', () => showSlide((currentIndex + 1) % slides.length));
-
-    // autoplay
-    let autoplay = setInterval(() => nextBtn.click(), 6000);
-    [prevBtn, nextBtn, dotsWrap].forEach(el => {
-      el.addEventListener('mouseenter', () => clearInterval(autoplay));
-      el.addEventListener('mouseleave', () => autoplay = setInterval(() => nextBtn.click(), 6000));
-    });
-
-    // Project details data
-    const projectsData = {
-      'project-1': {
-        title: 'Serveur Mail',
-        description: 'Mise en place et configuration d\'un serveur mail sécurisé pour une infrastructure réseau.',
-        technologies: ['Postfix', 'Dovecot', 'SpamAssassin', 'OpenDKIM'],
-        details: [
-          'Configuration et déploiement d\'un serveur mail complet',
-          'Implémentation des protocoles SMTP, POP3, IMAP sécurisés',
-          'Mise en place de filtres anti-spam et anti-virus',
-          'Configuration des enregistrements SPF, DKIM, DMARC'
-        ],
-        duration: '3 mois',
-        role: 'Administrateur système',
-        skills: ['Administration serveur', 'Sécurité mail', 'Configuration réseau', 'Troubleshooting']
-      },
-      'project-2': {
-        title: 'Usurpation d\'identité DNS',
-        description: 'Test de pénétration sur les vulnérabilités DNS et démonstration d\'attaques DNS spoofing.',
-        technologies: ['Wireshark', 'dnsspoof', 'Metasploit', 'Python'],
-        details: [
-          'Analyse des vulnérabilités DNS dans un environnement de test',
-          'Démonstration d\'attaques DNS spoofing et cache poisoning',
-          'Création de stratégies de mitigation et de défense',
-          'Documentation complète des risques et recommandations'
-        ],
-        duration: '2 mois',
-        role: 'Pentester',
-        skills: ['Pentesting', 'Analyse réseau', 'Sécurité DNS', 'Documentation']
-      },
-      'project-3': {
-        title: 'Projet laboratoire',
-        description: 'Création d\'un environnement de lab complet pour apprentissage en cybersécurité.',
-        technologies: ['Vagrant', 'VirtualBox', 'Linux', 'Debian'],
-        details: [
-          'Configuration d\'un lab multi-machines avec Vagrant',
-          'Implémentation d\'un réseau sécurisé avec firewall',
-          'Déploiement de services vulnérables pour l\'apprentissage',
-          'Documentation et guides d\'utilisation pour les étudiants'
-        ],
-        duration: '4 mois',
-        role: 'DevOps / Formateur',
-        skills: ['Infrastructure as Code', 'Virtualisation', 'Configuration Linux', 'Automation']
-      }
-    };
-
-    // Modal functionality
-    const modal = document.getElementById('project-modal');
-    const modalClose = document.querySelector('.modal-close');
-    const modalBody = document.getElementById('modal-body');
-
-    slides.forEach(slide => {
-      slide.addEventListener('click', () => {
-        const projectId = slide.getAttribute('data-project');
-        const projectData = projectsData[projectId];
-        const slideImg = slide.querySelector('img').src;
-        
-        if (projectData) {
-          modalBody.innerHTML = `
-            <h3>${projectData.title}</h3>
-            <img src="${slideImg}" alt="${projectData.title}" style="width:200px;height:auto;border-radius:8px;margin:1rem 0;display:block;">
-            <p><strong>Description:</strong> ${projectData.description}</p>
-            <p><strong>Durée:</strong> ${projectData.duration}</p>
-            <p><strong>Rôle:</strong> ${projectData.role}</p>
-            <p><strong>Technologies:</strong> ${projectData.technologies.join(', ')}</p>
-            <h4 style="color: var(--accent); margin-top: 1.5rem;">Détails du projet:</h4>
-            <ul>
-              ${projectData.details.map(detail => `<li>${detail}</li>`).join('')}
-            </ul>
-            <h4 style="color: var(--accent); margin-top: 1.5rem;">Compétences acquises:</h4>
-            <div style="display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:0.75rem;">
-              ${projectData.skills.map(skill => `<div style="background:rgba(230,126,48,0.12);color:var(--text);padding:0.4rem 0.6rem;border-radius:8px;border:1px solid rgba(230,126,48,0.2);display:inline-flex;align-items:center;justify-content:center;text-align:center;font-weight:500;font-size:0.85rem;white-space:nowrap;">${skill}</div>`).join('')}
-            </div>
-          `;
-          modal.classList.add('active');
-        }
-      });
-    });
-
-    modalClose.addEventListener('click', () => modal.classList.remove('active'));
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.remove('active');
-      }
+  if (langToggle) {
+    langToggle.addEventListener('click', () => {
+      setLanguage(currentLang === 'en' ? 'fr' : 'en');
     });
   }
 
-  /* ---------- CONTACT FORM ---------- */
-  const form = document.getElementById('contact-form');
-  const status = document.getElementById('form-status');
+  // Update year in footer
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  // Scroll progress indicator
+  const scrollProgress = document.getElementById('scrollProgress');
+  if (scrollProgress) {
+    window.addEventListener('scroll', () => {
+      const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      scrollProgress.style.height = `${scrollPercent}%`;
+    });
+  }
 
-  // ----- Option A : EmailJS (client-side) -----
-  // Instructions : crée un compte sur https://www.emailjs.com, crée un service (ex: gmail), un template,
-  // Configuration Formspree - Solution simple et fiable
-  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xkogdrjd';
+  // ---------- INDEPENDENT POPUP MODALS ----------
+  const popupTemplate = document.getElementById('popupTemplate');
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    status.textContent = 'Envoi en cours…';
+  function getPopupContent(el) {
+    return {
+      title: currentLang === 'en' ? el.getAttribute('data-en-popup-title') || '' : el.getAttribute('data-fr-popup-title') || '',
+      text: currentLang === 'en' ? el.getAttribute('data-en-popup-text') || '' : el.getAttribute('data-fr-popup-text') || ''
+    };
+  }
+
+  function createPopup(modalId, title, text, element) {
+    const clone = popupTemplate.content.cloneNode(true);
+    const modal = clone.querySelector('.popup-modal');
+    const popupTitle = clone.querySelector('.popup-title');
+    const popupContent = clone.querySelector('.popup-content');
+    const closeBtn = clone.querySelector('.popup-close');
+
+    // Replace ID placeholders - template uses {{id}}
+    modal.querySelectorAll('[id]').forEach(el => {
+      el.id = el.id.replace(/\{\{id\}\}/g, modalId);
+    });
+    const ariaEl = modal.querySelector('[aria-labelledby]');
+    if (ariaEl) ariaEl.setAttribute('aria-labelledby', `popup-title-${modalId}`);
+
+    popupTitle.textContent = title;
+
+    const popupCard = clone.querySelector('.popup-card');
+    const isMarlink = element.getAttribute('data-en-popup-title') && element.getAttribute('data-en-popup-title').includes('Marlink');
     
-    const formData = new FormData(form);
-    
-    // Utiliser Formspree pour envoyer
-    fetch(FORMSPREE_ENDPOINT, {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    })
-    .then(response => {
-      console.log('Response status:', response.status);
-      if (response.ok) {
-        status.textContent = '✅ Merci ! Ton message a bien été envoyé.';
-        form.reset();
-        return response.json();
-      } else {
-        return response.json().then(data => {
-          console.error('Form error:', data);
-          throw new Error(data.error || 'Erreur lors de l\'envoi');
+    if (isMarlink) {
+      // Logo top-right
+      const logo = document.createElement('img');
+      logo.src = './Malrink-logo-1440x321.png';
+      logo.alt = 'Marlink';
+      logo.className = 'popup-logo';
+      popupCard.appendChild(logo);
+      
+      // Language-specific schema
+      const schemaSrc = currentLang === 'en' ? './task-schema.png' : './schema-tache.png';
+      popupContent.innerHTML = `<div class="popup-mindmap"><img src="${schemaSrc}" alt="Task Schema"></div>`;
+    } else {
+      popupContent.innerHTML = text.replace(/\n/g, '<br>');
+    }
+
+    // Event handlers
+    closeBtn.onclick = () => closeSpecificPopup(modalId);
+    modal.querySelector('.popup-backdrop').onclick = () => closeSpecificPopup(modalId);
+
+    document.body.appendChild(clone);
+    document.body.classList.add('modal-open');
+
+    // Open animation
+    requestAnimationFrame(() => modal.classList.add('open'));
+
+    return modal;
+  }
+
+  const openModals = new Set();
+
+  function closeSpecificPopup(modalId) {
+    const titleEl = document.getElementById(`popup-title-${modalId}`);
+    const modal = titleEl ? titleEl.closest('.popup-modal') : null;
+    if (modal) {
+      modal.classList.remove('open');
+      setTimeout(() => {
+        if (modal.parentNode) modal.remove();
+        if (document.body.classList.contains('modal-open') && openModals.size === 1) {
+          document.body.classList.remove('modal-open');
+        }
+        openModals.delete(modalId);
+      }, 400);
+    }
+  }
+
+  // Global Escape handler for all modals (closes topmost)
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && openModals.size > 0) {
+      const modalArray = Array.from(openModals);
+      closeSpecificPopup(modalArray[modalArray.length - 1]);
+    }
+  });
+
+  // Event listeners for popups - create independent modals
+  document.querySelectorAll('.project-card, .timeline-item').forEach((element, index) => {
+    element.style.cursor = 'pointer';
+    element.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const { title, text } = getPopupContent(element);
+      if (title || text) {
+        const modalId = `popup-${Date.now()}-${index}`;
+        openModals.add(modalId);
+        createPopup(modalId, title, text, element);
+      }
+    });
+  });
+
+  // ---------- CONTACT FORM - FORMSPREE ----------
+  const contactForm = document.getElementById('contact-form');
+  const formStatus = document.getElementById('form-status');
+  
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      if (formStatus) {
+        formStatus.textContent = currentLang === 'en' ? 'Sending...' : 'Envoi en cours…';
+      }
+      
+      const formData = new FormData(contactForm);
+      
+      try {
+        const response = await fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          body: formData,
+          headers: { 
+            'Accept': 'application/json'
+          }
         });
+        
+        if (response.ok) {
+          if (formStatus) {
+            formStatus.textContent = currentLang === 'en' ? 
+              '✅ Thank you! Your message has been sent.' : 
+              '✅ Merci ! Ton message a bien été envoyé.';
+            formStatus.style.color = '#43e97b';
+          }
+          contactForm.reset();
+        } else {
+          const data = await response.json();
+          throw new Error(data.error || (currentLang === 'en' ? 'Send error' : 'Erreur envoi'));
+        }
+      } catch (err) {
+        console.error('Formspree error:', err);
+        if (formStatus) {
+          formStatus.textContent = currentLang === 'en' ? 
+            '❌ Send error. Please try again or contact directly.' : 
+            '❌ Erreur lors de l\'envoi. Essaie à nouveau ou contacte directement.';
+          formStatus.style.color = '#f5576c';
+        }
       }
-    })
-    .then(data => {
-      console.log('Success:', data);
-    })
-    .catch(err => {
-      console.error('Formspree error:', err);
-      status.textContent = '❌ Erreur lors de l\'envoi. Essaie à nouveau ou contacte directement.';
     });
-  });
-
-  /* ---------- NAV: smooth scroll ---------- */
-  document.querySelectorAll('.main-nav a').forEach(a => {
-    a.addEventListener('click', (e) => {
-      const href = a.getAttribute('href');
-      if (href && href.startsWith('#')) {
-        e.preventDefault();
-        document.querySelector(href).scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
+  }
 });
