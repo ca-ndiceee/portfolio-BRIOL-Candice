@@ -75,12 +75,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const popupCard = clone.querySelector('.popup-card');
     const isMarlink = element.getAttribute('data-en-popup-title') && element.getAttribute('data-en-popup-title').includes('Marlink');
+    const isFortinet = element.getAttribute('data-en-popup-title') && element.getAttribute('data-en-popup-title').includes('Certification');
     
     if (isMarlink) {
       // Logo top-right
       const logo = document.createElement('img');
       logo.src = './Malrink-logo-1440x321.png';
       logo.alt = 'Marlink';
+      logo.className = 'popup-logo';
+      popupCard.appendChild(logo);
+
+      if (isFortinet) {
+      // Logo top-right
+      const logo = document.createElement('img');
+      logo.src = './NSE3-Certification';
+      logo.alt = 'certification';
       logo.className = 'popup-logo';
       popupCard.appendChild(logo);
       
