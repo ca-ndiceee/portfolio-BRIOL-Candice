@@ -97,9 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
       logo.className = 'popup-logo';
       popupCard.appendChild(logo);
       
-      // Language-specific schema
-      const schemaSrc = currentLang === 'en' ? './task-schema.png' : './schema-tache.png';
-      popupContent.innerHTML = `<div class="popup-mindmap"><img src="${schemaSrc}" alt="Task Schema"></div>`;
+      // Show text content for Fortinet certification
+      popupContent.innerHTML = text.replace(/\n/g, '<br>');
     } else {
       popupContent.innerHTML = text.replace(/\n/g, '<br>');
     }

@@ -57,6 +57,7 @@ body{
 /* sections */
 .section{padding:3rem 0}
 .section.alt{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border-top:1px solid rgba(255,255,255,0.02);}
+section:not(.section-hero):not(.section-horizontal){background:#f1f5fe;padding:4rem 0}
 
 /* skills */
 .skills-grid-aligned{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1rem}
