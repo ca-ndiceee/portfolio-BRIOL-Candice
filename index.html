@@ -315,8 +315,84 @@
       .hero-details {
         grid-template-columns: 1fr;
       }
+      .header-inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+      }
+      .main-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+      }
+      .main-nav a {
+        margin-left: 0;
+      }
+      .hero {
+        padding: 2.5rem 1rem;
+      }
+      .hero-ctas {
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero-socials {
+        justify-content: center;
+      }
+      .section-standard,
+      .section-alt,
+      section:not(.section-hero):not(.section-horizontal) {
+        padding: 3rem 1rem;
+      }
+      .skills-wrapper,
+      .experience-columns,
+      .contact-form-wrapper {
+        grid-template-columns: 1fr;
+      }
+      .timeline-item,
+      .carousel-track > .carousel-slide {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .carousel-slide img {
+        width: 100%;
+        max-width: 100%;
+      }
+      .horizontal-track {
+        display: block;
+        height: auto;
+        min-height: auto;
+        overflow-x: visible;
+      }
+      .horizontal-panel {
+        width: auto;
+        min-height: auto;
+        height: auto;
+        flex-shrink: 0;
+        display: block;
+        padding: 1rem;
+        scroll-snap-align: none;
+      }
+      .horizontal-panel .panel-content {
+        max-width: none;
+        text-align: left;
+        padding: 2rem 1rem;
+      }
+      .section-horizontal {
+        min-height: auto;
+      }
+      .panel-content {
+        padding: 2rem 1rem;
+      }
+      .contact-form-wrapper {
+        padding: 1.5rem;
+      }
+      .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
     }
-    
+
     @media (max-width: 640px) {
       .section-hero {
         padding: 3rem 1rem;
@@ -324,8 +400,20 @@
       .hero-title {
         font-size: 3.5rem;
       }
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+      .hero-ctas {
+        gap: 0.6rem;
+      }
+      .hero-card {
+        padding: 1rem;
+      }
+      .panel-content {
+        padding: 1.5rem;
+      }
     }
-    
+
     /* Horizontal Section */
     .section-horizontal {
       overflow: hidden;
@@ -1320,7 +1408,7 @@ main > section {
               <div class="skill-box" data-en="Firewalls &amp; VPN" data-fr="Firewalls &amp; VPN">Firewalls &amp; VPN</div>
               <div class="skill-box" data-en="Bash / Python" data-fr="Bash / Python">Bash / Python</div>
               <div class="skill-box" data-en="Linux / Windows" data-fr="Linux / Windows">Linux / Windows</div>
-              <div class="skill-box" data-en="Wireshark / Metasploit" data-fr="Wireshark / Metasploit">Wireshark / Metasploit</div>
+              <div class="skill-box" data-en="Wireshark / Nmap" data-fr="Wireshark / Nmap">Wireshark / Nmap</div>
             </div>
           </div>
         </div>
