@@ -84,11 +84,15 @@ document.addEventListener('DOMContentLoaded', () => {
       logo.alt = 'Marlink';
       logo.className = 'popup-logo';
       popupCard.appendChild(logo);
+      
+      // Language-specific schema
+      const schemaSrc = currentLang === 'en' ? './task-schema.png' : './schema-tache.png';
+      popupContent.innerHTML = `<div class="popup-mindmap"><img src="${schemaSrc}" alt="Task Schema"></div>`;
 
-      if (isFortinet) {
+    } else if (isFortinet) {
       // Logo top-right
       const logo = document.createElement('img');
-      logo.src = './NSE3-Certification';
+      logo.src = './NSE3-Certification.png';
       logo.alt = 'certification';
       logo.className = 'popup-logo';
       popupCard.appendChild(logo);
