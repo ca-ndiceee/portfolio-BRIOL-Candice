@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (formStatus) {
             formStatus.textContent = currentLang === 'en' ? 
               '✅ Thank you! Your message has been sent.' : 
-              '✅ Merci ! Ton message a bien été envoyé.';
+              '✅ Merci ! Votre message a bien été envoyé.';
             formStatus.style.color = '#43e97b';
           }
           contactForm.reset();
