@@ -6,8 +6,10 @@
   <title>BRIOL Candice — Réseaux &amp; Cybersécurité</title>
   <link rel="icon" href="./logo.png" type="image/x-icon">
   <link rel="stylesheet" href="./styles.css">
-  <script src="./BRIOL Candice — Réseaux &amp; Cybersécurité_files/email.min.js.télécharger"></script>
-  <link href="./BRIOL Candice — Réseaux &amp; Cybersécurité_files/css2" rel="stylesheet">
+  <meta name="theme-color" content="#2b1e16">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #f5f7fa;
@@ -1128,10 +1130,11 @@ main > section {
       }
     }
   </style>
+  <link rel="stylesheet" href="./theme.css">
 </head>
 <body>
   <div class="scroll-indicator">
-    <div class="scroll-progress" id="scrollProgress" style="height: 50.6264%;"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
   </div>
 
   <header class="site-header">
@@ -1151,6 +1154,7 @@ main > section {
   <main>
     <!-- HERO SECTION - Full Screen -->
     <section id="home" class="section-hero">
+      <canvas id="netCanvas" aria-hidden="true"></canvas>
       <div class="hero-headline">
         <div class="hero-label" data-en="Networks &amp; Cybersecurity" data-fr="Réseaux &amp; Cybersécurité">Networks &amp; Cybersecurity</div>
         <div class="hero-title"><span data-en="BRIOL" data-fr="BRIOL">BRIOL</span> Candice</div>
@@ -1461,7 +1465,7 @@ main > section {
     <!-- CONTACT SECTION -->
     <section id="contact" class="section-standard">
       <div class="container">
-        <h2 data-en="Contact" data-fr="Contact" style="background: linear-gradient(135deg, #6366f1, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Contact</h2>
+        <h2 data-en="Contact" data-fr="Contact">Contact</h2>
         <p class="section-subtitle" data-en="Feel free to contact me using this form." data-fr="N&#39;hésitez pas à me contacter depuis ce formulaire.">Feel free to contact me using this form.</p>
 
         <form id="contact-form" class="contact-form-wrapper" aria-label="Formulaire de contact">
@@ -1514,5 +1518,6 @@ main > section {
 </template>
 
   <script src="./script.js"></script>
+  <script src="./fx.js" defer></script>
 
 </body></html>
