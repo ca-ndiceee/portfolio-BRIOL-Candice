@@ -178,3 +178,10 @@ main section#about.section-horizontal{min-height:0;overflow:visible;background:t
   .section-hero{padding-top:6rem}
 }
 @media (max-width:560px){.brand{display:none}.header-inner{justify-content:flex-end}}
+
+/* sélecteur de fond animé (provisoire) */
+.fx-picker{position:absolute;right:var(--pad-x);bottom:clamp(1.25rem,4vh,2.25rem);z-index:3;display:flex;gap:.2rem;padding:.25rem;background:var(--card);border:1px solid var(--line);border-radius:999px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.fx-picker button{padding:.4rem .85rem;background:transparent;color:var(--muted);border:0;border-radius:999px;font:600 .8rem var(--sans);cursor:pointer;transition:background .25s,color .25s}
+.fx-picker button:hover{color:var(--text)}
+.fx-picker button[aria-pressed="true"]{background:var(--rust);color:var(--on-rust)}
+@media (max-width:560px){.fx-picker{bottom:auto;top:4.5rem;right:var(--pad-x)}}
