@@ -85,9 +85,14 @@ document.addEventListener('DOMContentLoaded', () => {
       logo.className = 'popup-logo';
       popupCard.appendChild(logo);
       
-      // Language-specific schema
-      const schemaSrc = currentLang === 'en' ? './task-schema.png' : './schema-tache.png';
-      popupContent.innerHTML = `<div class="popup-mindmap"><img src="${schemaSrc}" alt="Task Schema"></div>`;
+      // Schéma interactif (marlink-schema.js), avec repli sur l'image si le script est absent
+      popupCard.classList.add('popup-card--schema');
+      if (window.renderMarlinkSchema) {
+        window.renderMarlinkSchema(popupContent, currentLang);
+      } else {
+        const schemaSrc = currentLang === 'en' ? './task-schema.png' : './schema-tache.png';
+        popupContent.innerHTML = `<div class="popup-mindmap"><img src="${schemaSrc}" alt="Task Schema"></div>`;
+      }
 
     } else if (isFortinet) {
       // Logo top-right

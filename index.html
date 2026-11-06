@@ -1207,44 +1207,57 @@ main > section {
       </div>
     </section>
 
-    <section id="presentation" class="section-standard section-alt">
-      <div class="container">
-        <h2 data-en="Presentation" data-fr="Présentation">Presentation</h2>
-        <p class="section-subtitle" data-en="A quick overview of my skills, education and strengths." data-fr="Un aperçu de mes compétences, ma formation et mes atouts.">A quick overview of my skills, education and strengths.</p>
-        <div class="hero-card">
-          <div class="hero-card-left" style="display: flex; align-items: flex-start; gap: 1.5rem;">
-            <div class="hero-avatar">BC</div>
-            <div>
+    <section id="presentation" class="section-standard section-alt" data-hscroll>
+      <div class="hscroll-sticky">
+        <div class="hscroll-head">
+          <h2 data-en="Presentation" data-fr="Présentation">Presentation</h2>
+          <p class="section-subtitle" data-en="A quick overview of my skills, education and strengths." data-fr="Un aperçu de mes compétences, ma formation et mes atouts.">A quick overview of my skills, education and strengths.</p>
+        </div>
+        <div class="hscroll-viewport">
+          <div class="hscroll-track">
+            <article class="hs-panel hs-intro">
+              <div class="hero-avatar">BC</div>
               <h3 data-en="BRIOL Candice" data-fr="BRIOL Candice">BRIOL Candice</h3>
               <p class="hero-role" data-en="Network &amp; Cybersecurity Student" data-fr="Étudiante Réseaux &amp; Cybersécurité">Network &amp; Cybersecurity Student</p>
               <p data-en="I help companies secure their infrastructure, analyze threats, and build reliable networks for modern environments." data-fr="J&#39;aide à sécuriser les infrastructures, analyser les menaces et construire des réseaux fiables pour des environnements modernes.">I help companies secure their infrastructure, analyze threats, and build reliable networks for modern environments.</p>
-            </div>
-
-          </div>
-
-          <div class="hero-card-right">
-            <h4 data-en="Key strengths" data-fr="Atouts">Key strengths</h4>
-            <div class="hero-progress">
-              <div class="progress-line">
-                <div class="progress-label"><span data-en="Network Security" data-fr="Sécurité réseau">Network Security</span><span>90%</span></div>
+              <p class="hs-hint" data-en="Keep scrolling to discover my skills" data-fr="Continuez à défiler pour découvrir mes compétences">Keep scrolling to discover my skills</p>
+            </article>
+            <article class="hs-panel hs-skill">
+              <span class="hs-index">01</span>
+              <div>
+                <div class="hs-value" data-count="90">90%</div>
+                <h3 data-en="Network Security" data-fr="Sécurité réseau">Network Security</h3>
                 <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
               </div>
-              <div class="progress-line">
-                <div class="progress-label"><span data-en="Infrastructure" data-fr="Infrastructure">Infrastructure</span><span>85%</span></div>
+              <p data-en="Firewalls, VPN, IPS and filtering: securing and monitoring a network with Fortinet (NSE 3)." data-fr="Pare-feu, VPN, IPS et filtrage : sécuriser et superviser un réseau avec Fortinet (NSE 3).">Firewalls, VPN, IPS and filtering: securing and monitoring a network with Fortinet (NSE 3).</p>
+            </article>
+            <article class="hs-panel hs-skill">
+              <span class="hs-index">02</span>
+              <div>
+                <div class="hs-value" data-count="85">85%</div>
+                <h3 data-en="Infrastructure" data-fr="Infrastructure">Infrastructure</h3>
                 <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
               </div>
-              <div class="progress-line">
-                <div class="progress-label"><span data-en="Analysis" data-fr="Analyse">Analysis</span><span>88%</span></div>
+              <p data-en="Debian mail server, a school lab environment, Linux and Windows administration." data-fr="Serveur de messagerie sous Debian, laboratoire pour l'école, administration Linux et Windows.">Debian mail server, a school lab environment, Linux and Windows administration.</p>
+            </article>
+            <article class="hs-panel hs-skill">
+              <span class="hs-index">03</span>
+              <div>
+                <div class="hs-value" data-count="88">88%</div>
+                <h3 data-en="Analysis" data-fr="Analyse">Analysis</h3>
                 <div class="progress-bar"><div class="progress-fill" style="width: 88%;"></div></div>
               </div>
-            </div>
-            <div class="hero-language">
-              <h4 data-en="English level" data-fr="Niveau d&#39;anglais">English level</h4>
-              <div class="progress-line">
-                <div class="progress-label"><span data-en="English" data-fr="Anglais">English</span><span>B2</span></div>
+              <p data-en="Auditing and pentesting, traffic analysis with Wireshark, demonstrating attacks such as DNS spoofing." data-fr="Audit et tests d'intrusion, analyse de trafic avec Wireshark, démonstration d'attaques comme l'usurpation DNS.">Auditing and pentesting, traffic analysis with Wireshark, demonstrating attacks such as DNS spoofing.</p>
+            </article>
+            <article class="hs-panel hs-skill">
+              <span class="hs-index">04</span>
+              <div>
+                <div class="hs-value">B2</div>
+                <h3 data-en="English" data-fr="Anglais">English</h3>
                 <div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div>
               </div>
-            </div>
+              <p data-en="Reading technical documentation and communicating in a professional setting." data-fr="Lecture de documentation technique et échanges en contexte professionnel.">Reading technical documentation and communicating in a professional setting.</p>
+            </article>
           </div>
         </div>
       </div>
@@ -1517,6 +1530,7 @@ main > section {
   </div>
 </template>
 
+  <script src="./marlink-schema.js"></script>
   <script src="./script.js"></script>
   <script src="./fx.js" defer></script>
 

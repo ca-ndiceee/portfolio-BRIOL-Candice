@@ -4,10 +4,12 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BRIOL Candice — Réseaux &amp; Cybersécurité</title>
-  <link rel="icon" href="./logo.png" type="image/x-icon">
+  <link rel="icon" href="./logo.ico" type="image/x-icon">
   <link rel="stylesheet" href="./styles.css">
-  <script src="./BRIOL Candice — Réseaux &amp; Cybersécurité_files/email.min.js.télécharger"></script>
-  <link href="./BRIOL Candice — Réseaux &amp; Cybersécurité_files/css2" rel="stylesheet">
+  <meta name="theme-color" content="#2b1e16">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #f5f7fa;
@@ -1128,14 +1130,16 @@ main > section {
       }
     }
   </style>
+  <link rel="stylesheet" href="./theme.css">
 </head>
 <body>
   <div class="scroll-indicator">
-    <div class="scroll-progress" id="scrollProgress" style="height: 50.6264%;"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
   </div>
 
   <header class="site-header">
     <div class="header-inner">
+      <img src="./logo.png" alt="Logo de Candice Briol" class="header-logo" width="75" height="65">
       <a class="brand" href="#home" data-en="BRIOL Candice" data-fr="BRIOL Candice">BRIOL Candice</a>
       <nav class="main-nav" aria-label="Navigation principale">
         <a href="#home" data-en="Home" data-fr="Accueil">Home</a>
@@ -1151,6 +1155,7 @@ main > section {
   <main>
     <!-- HERO SECTION - Full Screen -->
     <section id="home" class="section-hero">
+      <canvas id="netCanvas" aria-hidden="true"></canvas>
       <div class="hero-headline">
         <div class="hero-label" data-en="Networks &amp; Cybersecurity" data-fr="Réseaux &amp; Cybersécurité">Networks &amp; Cybersecurity</div>
         <div class="hero-title"><span data-en="BRIOL" data-fr="BRIOL">BRIOL</span> Candice</div>
@@ -1203,46 +1208,60 @@ main > section {
       </div>
     </section>
 
-    <section id="presentation" class="section-standard section-alt">
-      <div class="container">
-        <h2 data-en="Presentation" data-fr="Présentation">Presentation</h2>
-        <p class="section-subtitle" data-en="A quick overview of my skills, education and strengths." data-fr="Un aperçu de mes compétences, ma formation et mes atouts.">A quick overview of my skills, education and strengths.</p>
-        <div class="hero-card">
-          <div class="hero-card-left" style="display: flex; align-items: flex-start; gap: 1.5rem;">
-            <div class="hero-avatar">BC</div>
-            <div>
+    <section id="presentation" class="section-standard section-alt" data-hscroll>
+      <div class="hscroll-sticky">
+        <div class="hscroll-head">
+          <h2 data-en="Presentation" data-fr="Présentation">Presentation</h2>
+          <p class="section-subtitle" data-en="A quick overview of my skills, education and strengths." data-fr="Un aperçu de mes compétences, ma formation et mes atouts.">A quick overview of my skills, education and strengths.</p>
+        </div>
+        <div class="hscroll-viewport">
+          <div class="hscroll-track">
+            <article class="hs-panel hs-intro">
+              <div class="hero-avatar">BC</div>
               <h3 data-en="BRIOL Candice" data-fr="BRIOL Candice">BRIOL Candice</h3>
               <p class="hero-role" data-en="Network &amp; Cybersecurity Student" data-fr="Étudiante Réseaux &amp; Cybersécurité">Network &amp; Cybersecurity Student</p>
               <p data-en="I help companies secure their infrastructure, analyze threats, and build reliable networks for modern environments." data-fr="J&#39;aide à sécuriser les infrastructures, analyser les menaces et construire des réseaux fiables pour des environnements modernes.">I help companies secure their infrastructure, analyze threats, and build reliable networks for modern environments.</p>
-            </div>
-
-          </div>
-
-          <div class="hero-card-right">
-            <h4 data-en="Key strengths" data-fr="Atouts">Key strengths</h4>
-            <div class="hero-progress">
-              <div class="progress-line">
-                <div class="progress-label"><span data-en="Network Security" data-fr="Sécurité réseau">Network Security</span><span>90%</span></div>
+              <p class="hs-hint" data-en="Keep scrolling to discover my skills" data-fr="Continuez à défiler pour découvrir mes compétences">Keep scrolling to discover my skills</p>
+            </article>
+            <article class="hs-panel hs-skill">
+              <span class="hs-index">01</span>
+              <div>
+                <div class="hs-value" data-count="90">90%</div>
+                <h3 data-en="Network Security" data-fr="Sécurité réseau">Network Security</h3>
                 <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
               </div>
-              <div class="progress-line">
-                <div class="progress-label"><span data-en="Infrastructure" data-fr="Infrastructure">Infrastructure</span><span>85%</span></div>
+              <p data-en="Firewalls, VPN, IPS and filtering: securing and monitoring a network with Fortinet (NSE 3)." data-fr="Pare-feu, VPN, IPS et filtrage : sécuriser et superviser un réseau avec Fortinet (NSE 3).">Firewalls, VPN, IPS and filtering: securing and monitoring a network with Fortinet (NSE 3).</p>
+            </article>
+            <article class="hs-panel hs-skill">
+              <span class="hs-index">02</span>
+              <div>
+                <div class="hs-value" data-count="85">85%</div>
+                <h3 data-en="Infrastructure" data-fr="Infrastructure">Infrastructure</h3>
                 <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
               </div>
-              <div class="progress-line">
-                <div class="progress-label"><span data-en="Analysis" data-fr="Analyse">Analysis</span><span>88%</span></div>
+              <p data-en="Debian mail server, a school lab environment, Linux and Windows administration." data-fr="Serveur de messagerie sous Debian, laboratoire pour l'école, administration Linux et Windows.">Debian mail server, a school lab environment, Linux and Windows administration.</p>
+            </article>
+            <article class="hs-panel hs-skill">
+              <span class="hs-index">03</span>
+              <div>
+                <div class="hs-value" data-count="88">88%</div>
+                <h3 data-en="Analysis" data-fr="Analyse">Analysis</h3>
                 <div class="progress-bar"><div class="progress-fill" style="width: 88%;"></div></div>
               </div>
-            </div>
-            <div class="hero-language">
-              <h4 data-en="English level" data-fr="Niveau d&#39;anglais">English level</h4>
-              <div class="progress-line">
-                <div class="progress-label"><span data-en="English" data-fr="Anglais">English</span><span>B2</span></div>
+              <p data-en="Auditing and pentesting, traffic analysis with Wireshark, demonstrating attacks such as DNS spoofing." data-fr="Audit et tests d'intrusion, analyse de trafic avec Wireshark, démonstration d'attaques comme l'usurpation DNS.">Auditing and pentesting, traffic analysis with Wireshark, demonstrating attacks such as DNS spoofing.</p>
+            </article>
+            <article class="hs-panel hs-skill">
+              <span class="hs-index">04</span>
+              <div>
+                <div class="hs-value">B2</div>
+                <h3 data-en="English" data-fr="Anglais">English</h3>
                 <div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div>
               </div>
-            </div>
+              <p data-en="Reading technical documentation and communicating in a professional setting." data-fr="Lecture de documentation technique et échanges en contexte professionnel.">Reading technical documentation and communicating in a professional setting.</p>
+            </article>
           </div>
         </div>
+        <div class="hscroll-progress" aria-hidden="true"><span></span></div>
       </div>
     </section>
 
@@ -1461,7 +1480,7 @@ main > section {
     <!-- CONTACT SECTION -->
     <section id="contact" class="section-standard">
       <div class="container">
-        <h2 data-en="Contact" data-fr="Contact" style="background: linear-gradient(135deg, #6366f1, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Contact</h2>
+        <h2 data-en="Contact" data-fr="Contact">Contact</h2>
         <p class="section-subtitle" data-en="Feel free to contact me using this form." data-fr="N&#39;hésitez pas à me contacter depuis ce formulaire.">Feel free to contact me using this form.</p>
 
         <form id="contact-form" class="contact-form-wrapper" aria-label="Formulaire de contact">
@@ -1514,5 +1533,6 @@ main > section {
 </template>
 
   <script src="./script.js"></script>
+  <script src="./fx.js" defer></script>
 
 </body></html>

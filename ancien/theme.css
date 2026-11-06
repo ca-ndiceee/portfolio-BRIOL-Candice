@@ -90,7 +90,6 @@ main section#about.section-horizontal{min-height:0;overflow:visible;background:t
 .progress-line{margin-bottom:1.1rem}
 .progress-bar{height:3px;background:var(--line);border-radius:3px;overflow:hidden}
 .progress-fill{height:100%;background:var(--rust);border-radius:3px;transform-origin:left;transition:transform 1.4s var(--ease) .25s}
-.js .hero-card:not(.seen) .progress-fill{transform:scaleX(0)}
 
 /* ---------- cartes : projets / timeline / recos / loisirs ---------- */
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:0}
@@ -178,3 +177,43 @@ main section#about.section-horizontal{min-height:0;overflow:visible;background:t
   .section-hero{padding-top:6rem}
 }
 @media (max-width:560px){.brand{display:none}.header-inner{justify-content:flex-end}}
+
+/* ---------- Présentation : défilement horizontal épinglé ---------- */
+main section#presentation{padding:clamp(2.5rem,6vw,4.5rem) 0}
+.hscroll-head{padding:0 var(--pad-x)}
+.hscroll-viewport{padding:0 var(--pad-x)}
+.hscroll-track{display:flex;flex-direction:column;gap:1rem}
+.hscroll-progress{display:none}
+.hs-panel{position:relative;display:flex;flex-direction:column;padding:clamp(1.5rem,3vw,2.25rem);background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:0 24px 50px -36px rgba(40,25,15,.45);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.hs-intro{justify-content:center;gap:.4rem}
+.hs-intro .hero-avatar{margin-bottom:1rem}
+.hs-intro h3{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,3vw,2.4rem);letter-spacing:-.02em;color:var(--text)}
+.hs-intro p{margin:0;color:var(--muted)}
+.hs-intro .hero-role{color:var(--rust);font-weight:600}
+.hs-intro .hs-hint{margin-top:auto;padding-top:1.25rem;font-size:.9rem;color:var(--rust)}
+.hs-intro .hs-hint::after{content:' \2192'}
+.hs-skill{justify-content:space-between;gap:1.25rem}
+.hs-index{font-family:var(--serif);font-size:1.05rem;color:var(--muted)}
+.hs-value{font-family:var(--serif);font-optical-sizing:auto;font-weight:300;font-size:clamp(4rem,10vw,6.5rem);line-height:1;letter-spacing:-.04em;color:var(--rust)}
+.hs-skill h3{margin:.5rem 0 1rem;font-family:var(--serif);font-weight:400;font-size:clamp(1.5rem,2.4vw,1.9rem);letter-spacing:-.02em;color:var(--text)}
+.hs-skill .progress-bar{height:5px}
+.hs-skill p{margin:0;min-height:4.95em;color:var(--muted);line-height:1.65}
+.js .hs-skill:not(.active) .progress-fill{transform:scaleX(0)}
+
+/* mode horizontal (activé par fx.js ; sans JS ou animations réduites : empilement vertical) */
+#presentation.hscroll-on{padding:0}
+#presentation.hscroll-on .hscroll-sticky{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;overflow:hidden;padding-top:5.5rem}
+#presentation.hscroll-on .hscroll-head .section-subtitle{margin-bottom:1rem}
+#presentation.hscroll-on .hscroll-viewport{flex:1;min-height:0;display:flex;align-items:center;padding:0}
+#presentation.hscroll-on .hscroll-track{flex-direction:row;align-items:stretch;gap:1.25rem;width:max-content;padding:0 var(--pad-x);will-change:transform}
+#presentation.hscroll-on .hs-panel{width:clamp(290px,76vw,500px);height:min(56vh,440px)}
+#presentation.hscroll-on .hs-intro{width:clamp(300px,80vw,600px)}
+#presentation.hscroll-on .hscroll-progress{display:block;height:2px;margin:0 var(--pad-x) clamp(1.5rem,4vh,2.5rem);background:var(--line);border-radius:2px;overflow:hidden}
+#presentation.hscroll-on .hscroll-progress span{display:block;height:100%;background:var(--rust);transform:scaleX(0);transform-origin:left}
+
+/* en-tête : une seule ligne sur mobile (la navigation défile si besoin) */
+@media (max-width:768px){
+  .header-inner{flex-direction:row;align-items:center;gap:1rem}
+  .main-nav{flex-wrap:nowrap;justify-content:flex-start;gap:1.1rem}
+  .lang-btn{flex-shrink:0}
+}
